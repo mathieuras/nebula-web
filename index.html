@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#050812" />
+<title>NEBULA — Écosystème vivant 3D</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="scene" aria-label="Écosystème extraterrestre tridimensionnel interactif"></canvas>
+<div class="vignette"></div><div class="grain"></div>
+<div class="ui" id="ui">
+  <div class="topline">
+    <div class="brand"><div class="brand-mark"><span></span></div><div><div class="wordmark">NEBULA</div><div class="submark">AUTONOMOUS LIFE SYSTEMS</div></div></div>
+    <div class="top-right">
+      <div class="status-pill"><span class="status-dot"></span> ÉCOSYSTÈME ACTIF</div>
+      <div class="status-pill hide-mobile">SECTEUR <span style="color:var(--ice)">07 · LYRA</span></div>
+      <div class="status-pill" id="fpsPill">FPS <span id="fps">--</span></div>
+    </div>
+  </div>
+  <aside class="left-panel">
+    <div class="eyebrow">// MONDE EN DIRECT</div>
+    <h2 class="panel-title">État de l'écosystème</h2>
+    <div class="metric"><div class="metric-head"><span>BIOMASSE VIVANTE</span><span class="metric-value" id="biomassValue">68%</span></div><div class="bar"><div class="bar-fill" id="biomassBar" style="width:68%"></div></div></div>
+    <div class="metric"><div class="metric-head"><span>ÉNERGIE VITALE</span><span class="metric-value" id="energyValue">74%</span></div><div class="bar"><div class="bar-fill" id="energyBar" style="width:74%;background:linear-gradient(90deg,#8a7cff,#b4a2ff);box-shadow:0 0 10px #9c88ff"></div></div></div>
+    <div class="metric"><div class="metric-head"><span>ESPÈCES ACTIVES</span><span class="metric-value" id="speciesValue">09</span></div></div>
+    <div class="metric"><div class="metric-head"><span>ANOMALIES</span><span class="metric-value" id="anomalyValue">02</span></div></div>
+    <p class="panel-note">Évolution procédurale en temps réel. Vos interventions influencent l'équilibre local.</p>
+  </aside>
+  <aside class="right-panel">
+    <div class="eyebrow">// INTERVENTION</div>
+    <h2 class="panel-title">Agir sur le vivant</h2>
+    <div class="action-list">
+      <button class="action" id="pulseBtn"><span class="action-icon">✳</span><span><span class="action-name">IMPULSION VITALE</span><span class="action-desc">Réveille la zone centrale</span></span></button>
+      <button class="action" id="seedBtn"><span class="action-icon">✧</span><span><span class="action-name">DISPERSER DES SPORES</span><span class="action-desc">Fait naître une nouvelle flore</span></span></button>
+      <button class="action" id="mutateBtn"><span class="action-icon">⌘</span><span><span class="action-name">MUTATION CHROMATIQUE</span><span class="action-desc">Transforme la signature du monde</span></span></button>
+      <button class="action" id="eventBtn"><span class="action-icon">☼</span><span><span class="action-name">DÉCLENCHER UN ÉVÉNEMENT</span><span class="action-desc">Perturbe l'équilibre naturel</span></span></button>
+    </div>
+    <div class="event-box"><div class="event-label">DERNIER ÉVÉNEMENT</div><div id="eventText">Les organismes bioluminescents synchronisent leurs pulsations.</div></div>
+  </aside>
+  <div class="crosshair" id="crosshair"></div>
+  <div class="bottom-ui">
+    <div class="coordinate">COORDONNÉES LOCALES<br><strong id="coords">X 000.0 · Y 004.2 · Z 018.0</strong><br><span id="worldClock">CYCLE 01 · 00:00</span></div>
+    <div class="controls-hint"><strong>GLISSER</strong> pour regarder &nbsp;·&nbsp; <strong>W A S D</strong> se déplacer<br><strong>CLIC GAUCHE</strong> sur le sol pour semer &nbsp;·&nbsp; <strong>ESPACE / CTRL</strong> monter / descendre</div>
+    <div class="right-bottom"><button class="small-btn" id="hudBtn">MASQUER HUD</button><button class="small-btn" id="resetBtn">RECADRER ↗</button></div>
+  </div>
+</div>
+<div class="loading" id="loading"><div class="loader-inner"><div class="loader-orb"></div><h1>NEBULA</h1><p>INITIALISATION DU SYSTÈME VIVANT</p></div></div>
+<div class="error" id="error"></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
